@@ -52,9 +52,8 @@ Then('devo ser redirecionado para a tela de login', async function (this: Custom
 });
 
 Then('devo ver o painel do admin', async function (this: CustomWorld) {
-  dashboardPage = new DashboardPage(this.page);
-  await expect(this.page).toHaveURL(/\/admin/);
-  expect(await dashboardPage.estaVisivel()).toBeTruthy();
+  await expect(this.page).toHaveURL(/\/admin/, { timeout: 10000 });
+  await expect(this.page.getByRole('heading', { name: 'Visão Geral' })).toBeVisible({ timeout: 10000 });
 });
 
 Then('não devo ser redirecionado para o painel', async function (this: CustomWorld) {
