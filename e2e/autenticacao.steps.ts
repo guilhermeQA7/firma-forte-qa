@@ -5,6 +5,7 @@ import { CriarContaPage } from './support/pages/CriarContaPage';
 import { DashboardPage } from './support/pages/DashboardPage';
 import { LoginPage } from './support/pages/LoginPage';
 
+
 let criarContaPage: CriarContaPage;
 let loginPage: LoginPage;
 let dashboardPage: DashboardPage;
