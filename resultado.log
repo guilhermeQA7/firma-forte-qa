@@ -1,0 +1,130 @@
+
+> firma-forte@1.0.0 test:e2e C:\Users\guigomes\Desktop\workspace\firma-forte-qa
+> cucumber-js
+
+Cannot use 'progress-bar' formatter for output to 'stdout' as not a TTY. Switching to 'progress' formatter.
+.UUUUU..UUUUU..UUUUUU..UUUUU..UUU.
+
+Undefined scenarios:
+  1) Criar conta com sucesso no primeiro acesso # e2e\features\autenticacao.feature:7
+       Dado que estou na tela de criar conta
+       Quando seleciono o usuário "Admin"
+       E defino a senha "SenhaForte123!" e confirmo
+       E clico em "Criar conta"
+       Então devo ser redirecionado para o painel do admin
+  2) Login com credenciais corretas # e2e\features\autenticacao.feature:14
+       Dado que já existe uma conta "Admin" com senha "SenhaForte123!"
+       Quando acesso a tela de login
+       E informo o usuário "Admin" e a senha "SenhaForte123!"
+       E clico em "Entrar"
+       Então devo ver o painel do admin
+  3) Login com senha incorreta # e2e\features\autenticacao.feature:21
+       Dado que já existe uma conta "Admin" com senha "SenhaForte123!"
+       Quando acesso a tela de login
+       E informo o usuário "Admin" e a senha "SenhaErrada"
+       E clico em "Entrar"
+       Então devo ver a mensagem "Senha incorreta"
+       E não devo ser redirecionado para o painel
+  4) Tentar criar conta para usuário que já tem senha definida # e2e\features\autenticacao.feature:29
+       Dado que já existe uma conta "Admin" com senha definida
+       Quando acesso a tela de criar conta
+       E seleciono o usuário "Admin"
+       E defino qualquer senha e confirmo
+       Então devo ver a mensagem de erro informando que a conta já existe
+  5) Logout # e2e\features\autenticacao.feature:36
+       Dado que estou logado como "Admin"
+       Quando clico em "Sair"
+       Então devo ser redirecionado para a tela de login
+
+5 scenarios (5 undefined)
+34 steps (10 passed, 24 undefined)
+0m 1.853s (0m 1.834s executing your code)
+
+You can implement missing steps with the snippets below:
+
+Given('que estou na tela de criar conta', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('seleciono o usuário {string}', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('defino a senha {string} e confirmo', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('clico em {string}', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('devo ser redirecionado para o painel do admin', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Given('que já existe uma conta {string} com senha {string}', function (string, string2) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('acesso a tela de login', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('informo o usuário {string} e a senha {string}', function (string, string2) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('devo ver o painel do admin', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('devo ver a mensagem {string}', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('não devo ser redirecionado para o painel', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Given('que já existe uma conta {string} com senha definida', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('acesso a tela de criar conta', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+When('defino qualquer senha e confirmo', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('devo ver a mensagem de erro informando que a conta já existe', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Given('que estou logado como {string}', function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('devo ser redirecionado para a tela de login', function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+ ELIFECYCLE  Command failed with exit code 1.

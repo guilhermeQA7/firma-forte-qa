@@ -1,5 +1,8 @@
 import { setWorldConstructor, World, IWorldOptions, Before, After } from '@cucumber/cucumber';
 import { Browser, BrowserContext, Page, chromium } from '@playwright/test';
+import 'dotenv/config';
+import { setDefaultTimeout } from '@cucumber/cucumber';
+setDefaultTimeout(15000);
 
 export class CustomWorld extends World {
   browser!: Browser;

@@ -1,0 +1,45 @@
+name: E2E Tests - FirmaForte QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
+
+      - name: Instalar navegadores do Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Rodar testes E2E
+        run: pnpm exec cucumber-js
+        env:
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          E2E_BASE_URL: https://firma-forte-qa.up.railway.app
+
+      - name: Publicar relatório HTML (mesmo se falhar)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report
+          path: e2e/report/cucumber-report.html
