@@ -1,0 +1,16 @@
+
+> firma-forte@1.0.0 test:e2e C:\Users\Guilh\workspace\firma-forte
+> cucumber-js
+
+TypeError: Cannot read properties of undefined (reading 'fileExists')
+    at readConfig (C:\Users\Guilh\workspace\firma-forte\node_modules\.pnpm\ts-node@10.9.2_@types+node@26.1.1_typescript@7.0.2\node_modules\ts-node\dist\configuration.js:91:33)
+    at findAndReadConfig (C:\Users\Guilh\workspace\firma-forte\node_modules\.pnpm\ts-node@10.9.2_@types+node@26.1.1_typescript@7.0.2\node_modules\ts-node\dist\configuration.js:50:84)
+    at create (C:\Users\Guilh\workspace\firma-forte\node_modules\.pnpm\ts-node@10.9.2_@types+node@26.1.1_typescript@7.0.2\node_modules\ts-node\dist\index.js:146:69)
+    at Object.register (C:\Users\Guilh\workspace\firma-forte\node_modules\.pnpm\ts-node@10.9.2_@types+node@26.1.1_typescript@7.0.2\node_modules\ts-node\dist\index.js:127:19)
+    at Object.<anonymous> (C:\Users\Guilh\workspace\firma-forte\node_modules\.pnpm\ts-node@10.9.2_@types+node@26.1.1_typescript@7.0.2\node_modules\ts-node\register\index.js:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+ ELIFECYCLE  Command failed with exit code 1.
