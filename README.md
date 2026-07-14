@@ -62,6 +62,20 @@ O cenário **"Criar conta com sucesso no primeiro acesso"** está marcado com a 
 ```bash
 npx cucumber-js --tags "@manual-reset-required"
 ```
+## Bugs e observações encontradas
+
+Durante a construção e execução dos testes, foram identificados alguns comportamentos que merecem atenção do time de desenvolvimento — desde falhas de validação até pontos de acessibilidade. O detalhamento completo (passos para reproduzir, severidade e impacto) está documentado em [`BUGS.md`](./BUGS.md).
+
+**Resumo:**
+
+| ID | Módulo | Severidade |
+|---|---|---|
+| BUG-001 | Produtos — SKU duplicado permitido | Alta |
+| BUG-002 | Categorias — nome duplicado permitido | Média |
+| BUG-003 | Categorias — sem feedback ao salvar campo vazio | Média |
+| BUG-004 | Múltiplos — botões de ícone sem acessibilidade | Baixa-Média |
+| BUG-005 | Categorias — modal de exclusão nativo do navegador | Baixa |
+
 
 ## Autor
 
