@@ -78,7 +78,8 @@ Durante a construção e execução dos testes, foram identificados alguns compo
 | BUG-003 | Categorias — sem feedback ao salvar campo vazio | Média |
 | BUG-004 | Múltiplos — botões de ícone sem acessibilidade | Baixa-Média |
 | BUG-005 | Categorias — modal de exclusão nativo do navegador | Baixa |
-
+| BUG-006 | Produtos — Preço de Custo aceita valores negativos | Média |
+| BUG-007 | Produtos — Preço de Venda sem validação (aceita prejuízo) | Média/Alta |
 
 ## Autor
 
