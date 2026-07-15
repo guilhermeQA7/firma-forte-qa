@@ -55,6 +55,9 @@ Os testes rodam automaticamente via **GitHub Actions** a cada push ou pull reque
 - ✅ Login com senha incorreta
 - ✅ Tentar criar conta para usuário que já tem senha definida
 - ✅ Logout
+- ✅ Cadastro de Produto: validação de Preço de Custo (Equivalência + Valor Limite)
+- ✅ Cadastro de Produto: validação de Preço de Venda (Equivalência + Valor Limite)
+- ✅ Cadastro de Produto: regra de negócio Preço de Venda vs Preço de Custo (Tabela de Decisão)
 
 ## Limitações conhecidas
 

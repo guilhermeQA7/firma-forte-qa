@@ -127,6 +127,80 @@ Impacto estético/consistência de marca — não afeta funcionalidade, mas pass
 
 ---
 
+## BUG-006: Preço de Custo aceita valores negativos
+
+**Severidade:** Média
+**Módulo:** Produtos
+**Status:** Aberto
+
+### Descrição
+O campo "Preço de Custo" no cadastro de produto exibe uma validação HTML5
+(`min="0"`) que impede a digitação manual de números negativos no
+navegador, mas essa validação é puramente cosmética: o backend não valida
+a faixa do valor, apenas o tipo. Um valor negativo enviado diretamente à
+API é aceito e persistido normalmente.
+
+### Passos para reproduzir
+1. Autenticar como admin
+2. Enviar requisição `POST /api/products` com `costPrice: -5` (e demais
+   campos obrigatórios válidos)
+3. Observar resposta: `201 Created`
+4. Consultar o produto criado: `costPrice` salvo e exibido como `-R$ 5,00`
+
+### Resultado esperado
+O backend deveria rejeitar valores negativos de Preço de Custo, retornando
+erro de validação (ex: `400` com mensagem clara).
+
+### Resultado atual
+Aceito sem nenhuma validação de faixa (mínimo) no backend.
+
+### Impacto
+Permite dado de negócio inconsistente (produto com custo negativo pode
+distorcer relatórios financeiros/margem de lucro calculada a partir
+desse campo).
+
+---
+
+## BUG-007: Preço de Venda sem validação de negócio (aceita prejuízo)
+
+**Severidade:** Média/Alta
+**Módulo:** Produtos
+**Status:** Aberto
+
+### Descrição
+O campo "Preço de Venda" aceita qualquer valor numérico sem nenhuma
+validação de regra de negócio: aceita zero, aceita negativo, e aceita
+valores menores que o Preço de Custo do mesmo produto (ou seja, permite
+cadastrar um produto configurado para dar prejuízo em cada venda, sem
+nenhum aviso ou bloqueio).
+
+### Passos para reproduzir
+1. Autenticar como admin
+2. Enviar `POST /api/products` com `costPrice: 100, salePrice: 50`
+   (venda 50% abaixo do custo)
+3. Observar resposta: `201 Created`
+4. Produto criado normalmente, sem nenhum toast de aviso/confirmação
+
+Outras variações confirmadas com o mesmo resultado (aceitas sem restrição):
+- `costPrice: 10, salePrice: -20` (venda negativa)
+- `costPrice: 10, salePrice: 0` (venda zerada)
+
+### Resultado esperado
+Seria razoável ter ao menos um aviso quando o Preço de Venda for menor ou
+igual ao Preço de Custo, já que isso indica prejuízo ou operação sem
+margem.
+
+### Resultado atual
+Nenhuma validação cruzada entre `costPrice` e `salePrice` em nenhuma
+camada da aplicação (nem frontend, nem backend).
+
+### Impacto
+Diferente do BUG-006 (apenas dado inconsistente), aqui o impacto é
+potencialmente financeiro direto: um erro de digitação no cadastro pode
+gerar vendas com prejuízo sistemático sem qualquer alerta. Reforça o
+mesmo padrão do BUG-006: a camada de preços não tem validação de regra
+de negócio, apenas checagem de tipo.
+
 ## Resumo
 
 | ID | Módulo | Severidade | Status |
@@ -136,3 +210,5 @@ Impacto estético/consistência de marca — não afeta funcionalidade, mas pass
 | BUG-003 | Categorias | Média | Aberto |
 | BUG-004 | Múltiplos | Baixa-Média | Aberto |
 | BUG-005 | Categorias | Baixa | Aberto |
+| BUG-006 | Produtos | Média | Aberto |
+| BUG-007 | Produtos | Média/Alta | Aberto |

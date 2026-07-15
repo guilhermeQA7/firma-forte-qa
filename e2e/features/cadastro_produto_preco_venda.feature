@@ -25,7 +25,7 @@ Funcionalidade: Cadastro de Produto - Validação do campo Preço de Venda
       | CE-V03 | 0.01            | aceito              | Produto criado. |
       | CE-V04 | 50.00           | aceito              | Produto criado. |
 
-  # Mesmo comportamento do Preço de Custo (BUG-001): min="0" é só validação
+  # Mesmo comportamento do Preço de Custo (BUG-006): min="0" é só validação
   # HTML5 cosmética, backend aceita negativo sem restrição.
 
   @tabela-decisao @regra-negocio @preco-venda-vs-custo
@@ -38,7 +38,7 @@ Funcionalidade: Cadastro de Produto - Validação do campo Preço de Venda
     Então o resultado esperado deve ser "<resultado_esperado>"
     E a mensagem exibida deve ser "<mensagem>"
 
-    Exemplos: Combinações Custo x Venda (confirmadas via API - ver BUG-002)
+    Exemplos: Combinações Custo x Venda (confirmadas via API - ver BUG-007)
       | id     | preco_custo | preco_venda | resultado_esperado | mensagem        |
       | RN-01  | 100.00      | 150.00      | aceito              | Produto criado. |
       | RN-02  | 100.00      | 100.00      | aceito              | Produto criado. |
@@ -46,8 +46,7 @@ Funcionalidade: Cadastro de Produto - Validação do campo Preço de Venda
       | RN-04  | 10.00       | 0           | aceito              | Produto criado. |
       | RN-05  | 10.00       | -20.00      | aceito              | Produto criado. |
 
-  # BUG-002: RN-03, RN-04 e RN-05 documentam que a aplicação aceita venda
+  # BUG-007: RN-03, RN-04 e RN-05 documentam que a aplicação aceita venda
   # com prejuízo (venda < custo), venda zerada e venda negativa, sem
   # nenhuma validação de negócio em nenhuma camada (frontend ou backend).
-  # Ver docs/bug_002_preco_venda_sem_validacao.md para detalhes completos
-  # e a ação recomendada.
+  # Ver BUGS.md (seção BUG-007) para detalhes completos e a ação recomendada.

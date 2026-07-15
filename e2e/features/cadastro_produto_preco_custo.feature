@@ -26,7 +26,7 @@ Funcionalidade: Cadastro de Produto - Validação do campo Preço de Custo
       | CE-04  | 50.00           | aceito              | Produto criado. |
       | CE-07  | 0.001           | aceito              | Produto criado. |
 
-  # BUG-001 (severidade a classificar com o time): o campo Preço de Custo tem
+  # # BUG-006 (severidade a classificar com o time): o campo Preço de Custo tem
   # min="0" apenas no HTML5 (validação "cosmética" do navegador). O backend
   # (POST /api/products) NÃO valida faixa - apenas tipo (via Zod, provavelmente
   # drizzle-zod). Testado diretamente via API: costPrice = -5 foi aceito (201)
@@ -49,4 +49,4 @@ Funcionalidade: Cadastro de Produto - Validação do campo Preço de Custo
   #   de texto não numérico no próprio DOM.
   # Esses dois casos (vazio/null e tipo inválido) só são alcançáveis batendo
   # direto na API (retornam 400 com erro Zod de "Required"/"invalid_type").
-  # Serão cobertos no cenário de teste de API em tests/api/, não aqui.
+  # Serão cobertos em um futuro cenário de teste de API dentro de e2e/, não aqui.
